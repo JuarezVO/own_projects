@@ -6,3 +6,8 @@ processador_texto/alltext.pkl
 search_engine/emporio.ipynb
 search_engine/produtos.pkl
 search_engine/.ipynb_checkpoints/emporio-checkpoint.ipynb
+image_classifier/org_1028_equip_898_hly.csv
+image_classifier/X.pickle
+image_classifier/Y.pickle
+image_classifier/belem/*
+image_classifier/chapadao/*
