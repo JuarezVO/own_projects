@@ -1,0 +1,27 @@
+{
+  "suits":{
+    "1":"hearts",
+    "2":"spades",
+    "3":"diamonds",
+    "4":"clubs"
+  },
+  "cards":{
+    "1":"A",
+    "10":"T",
+    "11":"J",
+    "12":"Q",
+    "13":"K"
+  },
+  "games":{
+    "0": "high_card",
+    "1": "pair; one pair of equal ranks within five cards",
+    "2": "two_pairs; two pairs of equal ranks within five cards",
+    "3": "three_kind; three equal ranks within five cards",
+    "4": "straight; five cards, sequentially ranked with no gaps",
+    "5": "flush; five cards with the same suit",
+    "6": "full_house; pair + different rank three of a kind",
+    "7": "four_kind; four equal ranks within five cards",
+    "8": "straight_flush; straight + flush",
+    "9": "royal_flush; {Ace, King, Queen, Jack, Ten} + flush"
+  }
+}
