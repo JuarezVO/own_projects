@@ -40,16 +40,17 @@ if __name__ == '__main__':
     hand_suits = list(hand[['s1','s2']].values.tolist())
     hand_cards = list(hand[['h1','h2']].values.tolist())
     
-    games_work = games.drop('id',axis=1)
+    games_work = games.drop('id',axis=1).sample(n=10000)
     games_work['hand_card_1'] = hand['h1']
     games_work['hand_card_2'] = hand['h2']
     games_work['hand_suit_1'] = hand['s1']
     games_work['hand_suit_2'] = hand['s2']
     games_work = np.array_split(games_work,cpu_count()-1)
 
-    x = list(map(partial(resolve_game,hand_cards=hand_cards, hand_suits=hand_suits),games_work))
+    x = list(pool.map(partial(resolve_game,hand_cards=hand_cards, hand_suits=hand_suits),games_work))
     x = pd.concat(x)
     print(x)
+    quit()
   
     
   print(f'Tempo total: {time.time() - t1}s')
