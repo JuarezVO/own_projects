@@ -1,7 +1,7 @@
 import pandas as pd, json
 from collections import Counter
 
-hands = pd.read_csv('hands.csv')
+# hands = pd.read_csv('hands.csv')
 # games = pd.read_csv('games.csv',index_col='id')
 # codes = json.load(open('codes.json','r'))
 
@@ -10,15 +10,20 @@ def create_hands():
   
   idx = 0
   out = {}
+  nh = 1
   for h1 in range(1,14):
-    for h2 in range(1,14):
-      n = 1
+    for h2 in range(nh,14):
+      ns = 1
       for s1 in range(1,5):
-        for s2 in range(n,5):
-          suite = 's' if s1 == s2 else 'o'
-          out[idx] = {'h1':h1,'h2':h2,'s1':s1,'s2':s2,'suite':suite}
-          idx+=1
-        n+=1
+        for s2 in range(ns,5):
+          if h1 == h2 and s1 == s2:
+            continue
+          else:
+            suite = 's' if s1 == s2 else 'o'
+            out[idx] = {'h1':h1,'h2':h2,'s1':s1,'s2':s2,'suite':suite}
+            idx+=1
+        ns+=1
+    nh+=1
   out = pd.DataFrame.from_dict(out,orient='index')
   out.to_csv('hands.csv',index=False)
 
@@ -160,3 +165,4 @@ def result(cards, suits):
     result_key.append(0)
 
   return max(result_key)
+  
